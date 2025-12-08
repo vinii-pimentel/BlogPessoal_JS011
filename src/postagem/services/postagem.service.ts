@@ -26,7 +26,8 @@ export class PostagemService {
     async findAll(): Promise<Postagem[]> {
         return await this.postagemRepository.find({
             relations: {    // Indica que queremos trazer também o relacionamento
-                tema: true
+                tema: true,
+                usuario: true
             }
         })
     }
@@ -36,7 +37,8 @@ export class PostagemService {
         const postagem = await this.postagemRepository.findOne({
             where: { id },
             relations: {    // Indica que queremos trazer também o relacionamento
-                tema: true
+                tema: true,
+                usuario: true
             }
         })
 
@@ -56,7 +58,8 @@ export class PostagemService {
                 titulo: ILike(`%${titulo}%`)
             },
             relations: {    // Indica que queremos trazer também o relacionamento
-                tema: true
+                tema: true,
+                usuario: true
             }
         })
     }
